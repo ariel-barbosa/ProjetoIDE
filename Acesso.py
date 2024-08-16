@@ -32,8 +32,9 @@ class Acesso:
         self.titulo.pack()
 
         # LABEL NOME
-        self.labalNome = Label(self.segundoContainer, text="Nome", font=self.fontePadrao)
-        self.labalNome.pack(side=LEFT)
+        self.labelNome = Label(self.segundoContainer, text="Nome", font=self.fontePadrao)
+        self.labelNome.pack(side=LEFT)
+
 
         # Entry - Campo Nome
         self.nome = Entry(self.segundoContainer)
@@ -41,6 +42,42 @@ class Acesso:
         self.nome["font"] = self.fontePadrao
         self.nome.pack(side=LEFT)
 
+
+        # LABEL SENHA
+        self.labelSenha = Label(self.terceiroContainer, text="Senha", font=self.fontePadrao)
+        self.labelSenha.pack(side=LEFT)
+
+        # EXIBIÇÃO DA SENHA
+        self.senha = Entry(self.terceiroContainer)
+        self.senha["width"] = 30
+        self.senha["font"] = self.fontePadrao
+        self.senha["show"] = "*"
+        self.senha.pack(side=LEFT)
+
+        # Botão para Acessar/ Autenticar
+        self.autenticar = Button(self.quartoContainer)
+        self.autenticar["text"] = "Acessar"
+        self.autenticar["font"] = ("Arial", "15")
+        self.autenticar["width"] = 10
+        self.autenticar["command"] = self.verificaSenha
+        
+        # verificaSenha é uma metodo que será passado para o command - linha 70
+
+        # mensagem
+        self.mensagem = Label(self.quartoContainer, text="", font=self.fontePadrao)
+        self.autenticar.pack()
+
+        # Método Verifica Senha
+    def verificaSenha(self):
+        usuario = self.nome.get()
+        senha = self.senha.get()
+
+        # validação
+        # usuario e senha fictício
+        if usuario == "usuariodevmedia" and senha == "dev": 
+            self.mensagem["text"] = "Autenticado" 
+        else: 
+            self.mensagem["text"] = "Erro na autenticação"
 
 
 root = Tk()
