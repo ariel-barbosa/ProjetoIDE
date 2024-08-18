@@ -1,2 +1,2 @@
 # ProjetoIDE
- Exemplode de uso de GUI em 
+ Exemplode de uso de GUI em python
