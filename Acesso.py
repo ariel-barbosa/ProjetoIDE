@@ -25,10 +25,11 @@ class Acesso:
         self.quartoContainer = Frame(master)
         self.quartoContainer["pady"] = 20
         self.quartoContainer.pack()
+        
 
         # LABEL TITULO
         self.titulo = Label(self.primeiroContainer, text="LOGIN")
-        self.titulo["font"] = ("Arial", "14", "bold")
+        self.titulo["font"] = self.fontePadrao
         self.titulo.pack()
 
         # LABEL NOME
@@ -74,10 +75,13 @@ class Acesso:
 
         # validação
         # usuario e senha fictício
-        if usuario == "usuariodevmedia" and senha == "dev": 
+        if usuario == "user" and senha == "dev": 
             self.mensagem["text"] = "Autenticado" 
+            self.mensagem.pack()
         else: 
             self.mensagem["text"] = "Erro na autenticação"
+            self.mensagem.pack()
+
 
 
 root = Tk()
